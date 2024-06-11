@@ -1,11 +1,14 @@
 describe("API testing", ()=> {
 
+
+    const queryParam={ page:1 };
+
     it("Passing Query parameters", ()=>{
 
         cy.request({
             method: 'GET',
             url: 'https://reqres.in/api/users',
-            qs: { page:1 }
+            qs: queryParam
         })
         .then( (response) => {
             expect(response.status).to.eq(200);
